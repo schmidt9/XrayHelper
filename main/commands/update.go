@@ -116,7 +116,7 @@ func (this *UpdateCommand) Execute(args []string) error {
 
 // updateCore update core, support xray, v2ray, sing-box, mihomo, hysteria2
 func updateCore() error {
-	if runtime.GOARCH != "arm64" {
+	if runtime.GOARCH != "arm64" && builds.Config.XrayHelper.CoreType != "xray" {
 		return e.New("this feature only support arm64 device").WithPrefix(tagUpdate)
 	}
 	if err := os.MkdirAll(builds.Config.XrayHelper.DataDir, 0644); err != nil {
