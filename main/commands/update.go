@@ -29,10 +29,12 @@ const (
 	yacdMetaDownloadUrl  = "https://github.com/MetaCubeX/yacd/archive/gh-pages.zip"
 	metacubexDownloadUrl = "https://github.com/MetaCubeX/metacubexd/releases/latest/download/compressed-dist.tgz"
 	xrayCoreDownloadUrl  = "https://github.com/XTLS/Xray-core/releases/latest/download/Xray-android-arm64-v8a.zip"
+	xrayCoreDownloadUrlArm  = "https://github.com/schmidt9/XrayHelper/tree/master/arm-support/Xray-android-arm.zip"
 	v2rayCoreDownloadUrl = "https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-android-arm64-v8a.zip"
 	geoipDownloadUrl     = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
 	geositeDownloadUrl   = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
 	tun2socksDownloadUrl = "https://github.com/heiher/hev-socks5-tunnel/releases/latest/download/hev-socks5-tunnel-linux-arm64"
+	tun2socksDownloadUrlArm = "https://github.com/heiher/hev-socks5-tunnel/releases/latest/download/hev-socks5-tunnel-linux-arm32"
 	adgHomeDownloadUrl   = "https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_arm64.tar.gz"
 )
 
@@ -160,7 +162,11 @@ func updateCore() error {
 func updateXray() (bool, error) {
 	serviceRunFlag := false
 	xrayZipPath := path.Join(builds.Config.XrayHelper.DataDir, "xray.zip")
-	if err := common.DownloadFile(xrayZipPath, xrayCoreDownloadUrl); err != nil {
+	downloadUrl := xrayCoreDownloadUrl
+	if runtime.GOARCH != "arm64" {
+		downloadUrl = xrayCoreDownloadUrlArm
+	}
+	if err := common.DownloadFile(xrayZipPath, downloadUrl); err != nil {
 		return false, err
 	}
 	// update core need stop core service first
@@ -445,11 +451,12 @@ func updateAdgHome() error {
 
 // updateTun2socks update tun2socks
 func updateTun2socks() error {
+	downloadUrl := tun2socksDownloadUrl
 	if runtime.GOARCH != "arm64" {
-		return e.New("this feature only support arm64 device").WithPrefix(tagUpdate)
+		downloadUrl = tun2socksDownloadUrlArm
 	}
 	savePath := path.Join(path.Dir(builds.Config.XrayHelper.CorePath), "tun2socks")
-	if err := common.DownloadFile(savePath, tun2socksDownloadUrl); err != nil {
+	if err := common.DownloadFile(savePath, downloadUrl); err != nil {
 		return err
 	}
 	return nil
