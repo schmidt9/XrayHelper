@@ -25,8 +25,8 @@ jobs:
         include:
           - goos: android
             goarch: arm
-            cc: armv7a-linux-android35-clang
-            cxx: armv7a-linux-android35-clang++
+            cc: armv7a-linux-androideabi35-clang
+            cxx: armv7a-linux-androideabi35-clang++
           - goos: android
             goarch: arm64
             cc: aarch64-linux-android35-clang
@@ -54,7 +54,6 @@ jobs:
 
       - name: Show workflow information
         run: |
-          ls -l ${{ steps.setup-ndk.outputs.ndk-path }}/toolchains/llvm/prebuilt/linux-x86_64/bin
           export _NAME=$(jq ".[\"$GOOS-$GOARCH\"].friendlyName" -r < .github/build/friendly-filenames.json)
           export _CC=${{ steps.setup-ndk.outputs.ndk-path }}/toolchains/llvm/prebuilt/linux-x86_64/bin/${{ matrix.cc }}
           export _CXX=${{ steps.setup-ndk.outputs.ndk-path }}/toolchains/llvm/prebuilt/linux-x86_64/bin/${{ matrix.cxx }}
