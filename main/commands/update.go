@@ -22,20 +22,20 @@ import (
 )
 
 const (
-	tagUpdate            = "update"
-	singboxUrl           = "https://api.github.com/repos/SagerNet/sing-box/releases"
-	mihomoUrl            = "https://api.github.com/repos/MetaCubeX/mihomo/releases"
-	hysteriaUrl          = "https://api.github.com/repos/apernet/hysteria/releases"
-	yacdMetaDownloadUrl  = "https://github.com/MetaCubeX/yacd/archive/gh-pages.zip"
-	metacubexDownloadUrl = "https://github.com/MetaCubeX/metacubexd/releases/latest/download/compressed-dist.tgz"
-	xrayCoreDownloadUrl  = "https://github.com/XTLS/Xray-core/releases/latest/download/Xray-android-arm64-v8a.zip"
-	xrayCoreDownloadUrlArm  = "https://github.com/schmidt9/XrayHelper/tree/master/arm-support/Xray-android-arm.zip"
-	v2rayCoreDownloadUrl = "https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-android-arm64-v8a.zip"
-	geoipDownloadUrl     = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
-	geositeDownloadUrl   = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
-	tun2socksDownloadUrl = "https://github.com/heiher/hev-socks5-tunnel/releases/latest/download/hev-socks5-tunnel-linux-arm64"
-	tun2socksDownloadUrlArm = "https://github.com/heiher/hev-socks5-tunnel/releases/latest/download/hev-socks5-tunnel-linux-arm32"
-	adgHomeDownloadUrl   = "https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_arm64.tar.gz"
+	tagUpdate            	= "update"
+	singboxUrl           	= "https://api.github.com/repos/SagerNet/sing-box/releases"
+	mihomoUrl            	= "https://api.github.com/repos/MetaCubeX/mihomo/releases"
+	hysteriaUrl          	= "https://api.github.com/repos/apernet/hysteria/releases"
+	yacdMetaDownloadUrl  	= "https://github.com/MetaCubeX/yacd/archive/gh-pages.zip"
+	metacubexDownloadUrl 	= "https://github.com/MetaCubeX/metacubexd/releases/latest/download/compressed-dist.tgz"
+	xrayCoreDownloadUrl  	= "https://github.com/XTLS/Xray-core/releases/latest/download/Xray-android-arm64-v8a.zip"
+	xrayCoreDownloadUrlArm	= "https://github.com/schmidt9/Xray-core/releases/latest/download/Xray-android-arm.zip"
+	v2rayCoreDownloadUrl 	= "https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-android-arm64-v8a.zip"
+	geoipDownloadUrl     	= "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat"
+	geositeDownloadUrl   	= "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
+	tun2socksDownloadUrl 	= "https://github.com/heiher/hev-socks5-tunnel/releases/latest/download/hev-socks5-tunnel-linux-arm64"
+	tun2socksDownloadUrlArm	= "https://github.com/heiher/hev-socks5-tunnel/releases/latest/download/hev-socks5-tunnel-linux-arm32"
+	adgHomeDownloadUrl   	= "https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_arm64.tar.gz"
 )
 
 type UpdateCommand struct{}
