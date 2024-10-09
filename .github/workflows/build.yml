@@ -25,8 +25,8 @@ jobs:
         include:
           - goos: android
             goarch: arm
-            cc: aarch64-linux-android35-clang
-            cxx: aarch64-linux-android35-clang++
+            cc: armv7a-linux-android35-clang
+            cxx: armv7a-linux-android35-clang++
           - goos: android
             goarch: arm64
             cc: aarch64-linux-android35-clang
